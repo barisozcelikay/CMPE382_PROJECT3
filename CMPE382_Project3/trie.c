@@ -55,7 +55,6 @@ int search(struct Trie* head, char* str)
     }
     //if (head != NULL) {
 
-
     struct Trie* curr = head;
     while (*str)
     {
@@ -93,7 +92,6 @@ int deletion(struct Trie **curr, char* str)
 
     if (*str)
     {
-
         // if it is non-leaf
         if (*curr != NULL && (*curr)->character[(unsigned char)*str - ' '] != NULL &&
             deletion(&((*curr)->character[(unsigned char)*str - ' ']), str + 1) &&
@@ -125,7 +123,6 @@ int deletion(struct Trie **curr, char* str)
 
         // if the current node is a leaf node and has children
         else {
-            // marking
             (*curr)->count = 0;
             return 0;
         }
@@ -148,7 +145,7 @@ void print_string(char *str, int pos, int count, FILE *f)
    sprintf(buf, "%s\t%d\n", outstr, count);
    fputs(buf, f);
 }
-
+//write all Trie's node to Dictionary file
 int print_all_node(struct Trie *ptr, char *str, int pos, FILE *f)
 {
    int i;
@@ -168,7 +165,7 @@ int print_all_node(struct Trie *ptr, char *str, int pos, FILE *f)
    }
    return 0;
 }
-
+//Delete Trie node, and release the allocated memory
 int delete_node(struct Trie **ptr, struct Trie *head)
 {
    int i;

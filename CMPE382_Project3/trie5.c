@@ -37,7 +37,8 @@ struct Trie* getNewTrieNode()
     return node;
 }
 
-//function to insert a string into a Trie
+// function to insert a string into a Trie with using mutex.
+
 void insert(struct Trie *head, char* str)
 {
     //mutex
@@ -194,7 +195,7 @@ int delete_node(struct Trie **ptr)
    }
    return 1;
 }
-
+// main function for thread
 void *process_task(void *arg)
 {
    targ_t targ;
@@ -230,8 +231,7 @@ void *process_task(void *arg)
    return NULL;
 }
 
-int read_and_insert(struct Trie *threadptr, struct Trie *ptr, char *str,
-                     int pos)
+int read_and_insert(struct Trie *threadptr, struct Trie *ptr, char *str,int pos)
 {
    int i;
    char buf[500];
@@ -243,8 +243,11 @@ int read_and_insert(struct Trie *threadptr, struct Trie *ptr, char *str,
       //print_string(str, pos, ptr->count, f);
       memcpy(buf, str, pos);
       buf[pos] = 0;
+
+     // printf("tpointer %d",threadptr);
       for (i = 0; i < threadptr->count; i++) {
          insert(ptr, buf);
+         //buf[pos]++;
       }
    }
 

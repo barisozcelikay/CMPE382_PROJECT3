@@ -4,7 +4,6 @@
 
 #define CHAR_SIZE 224
 
-//int mode = 1;
 
 // Data structure to store a Trie node
 struct Trie
@@ -46,8 +45,6 @@ void insert(struct Trie *head, char* str)
     }
     curr->count++;
 }
-
-//to search a string in a Trie. It returns 1 if the string is found in the Trie, otherwise, it returns 0.
 
 int search(struct Trie* head, char* str)
 {

@@ -4,12 +4,11 @@
 
 #define CHAR_SIZE 224
 
-//int mode = 1;
 
 // Data structure to store a Trie node
 struct Trie
 {
-    int count;             // >0 when the node is a leaf node
+    int count;
     struct Trie* character[CHAR_SIZE];
 };
 
@@ -29,7 +28,7 @@ struct Trie* getNewTrieNode()
 //function to insert a string into a Trie
 void insert(struct Trie *head, char* str)
 {
-    // start from the root node
+
     struct Trie* curr = head;
     while (*str)
     {
@@ -50,7 +49,7 @@ int search(struct Trie* head, char* str)
 {
 
     if (head == NULL) {
-        //printf("böyle bir trie bulunamadý.");
+        //printf("bÃ¶yle bir trie bulunamadÄ±.");
         return 0;
     }
 

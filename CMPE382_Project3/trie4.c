@@ -39,7 +39,7 @@ struct Trie* getNewTrieNode()
     return node;
 }
 
-// function to insert a string into a Trie
+// function to insert a string into a Trie with using mutex.
 void insert(struct Trie *head, char* str)
 {
 
@@ -197,6 +197,7 @@ int delete_node(struct Trie **ptr, struct Trie *head)
    return 1;
 }
 
+// main function for thread
 void *process_task(void *arg)
 {
    targ_t targ;
